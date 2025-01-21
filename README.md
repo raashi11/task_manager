@@ -2,24 +2,24 @@
 
 A simple web-based task management application built using Flask, enabling user registration, login, task creation, editing, and deletion.
 
-Features
-1. User Authentication:
-a. Register new users.
-b. Login with secure JWT-based authentication.
-
-2. Task Management:
-a. Add new tasks with a title and description.
-b. Edit existing tasks.
-c. Delete tasks.
-d. View tasks in a user-specific dashboard.
-
-3. Security:
-a. Passwords are hashed using Werkzeug.
-b. JWT tokens for secure session management.
-
-4.Logging:
-a. Tracks user actions and errors in app.log.
-
+Features<br />
+1. User Authentication:<br />
+a. Register new users.<br />
+b. Login with secure JWT-based authentication.<br />
+<br />
+2. Task Management:<br />
+a. Add new tasks with a title and description.<br />
+b. Edit existing tasks.<br />
+c. Delete tasks.<br />
+d. View tasks in a user-specific dashboard.<br />
+<br />
+3. Security:<br />
+a. Passwords are hashed using Werkzeug.<br />
+b. JWT tokens for secure session management.<br />
+<br />
+4.Logging:<br />
+a. Tracks user actions and errors in app.log.<br />
+<br />
 Images for reference
 <img width="1139" alt="Screenshot 2025-01-21 at 6 21 21 PM" src="https://github.com/user-attachments/assets/52a609e2-42aa-43e3-a650-566fef84a4ea" />
 
