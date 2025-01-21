@@ -78,11 +78,28 @@
             border-radius: 4px;
             margin-bottom: 0.5rem;
         }
+        li div {
+            max-width: 70%;
+        }
         li strong {
             color: #333;
+            display: block;
         }
-        .delete-form {
-            margin: 0;
+        li p {
+            color: #666;
+            margin: 0.2rem 0 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .action-buttons a button {
+            background-color: #ffc107;
+        }
+        .action-buttons a button:hover {
+            background-color: #e0a800;
         }
         .delete-form button {
             background-color: #dc3545;
@@ -114,9 +131,14 @@
                         <strong>{{ task.title }}</strong>
                         <p>{{ task.description }}</p>
                     </div>
-                    <form method="POST" action="/delete-task/{{ task.id }}" class="delete-form">
-                        <button type="submit">Delete</button>
-                    </form>
+                    <div class="action-buttons">
+                        <a href="{{ url_for('edit_task', task_id=task.id) }}">
+                            <button type="button">Edit</button>
+                        </a>
+                        <form method="POST" action="/delete-task/{{ task.id }}" class="delete-form">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
                 </li>
             {% endfor %}
         </ul>

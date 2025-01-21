@@ -141,6 +141,31 @@ def delete_task(task_id):
         logging.error("Invalid JWT token.")
         return redirect(url_for("login"))
 
+@app.route('/edit-task/<int:task_id>', methods=['GET', 'POST'])
+def edit_task(task_id):
+    if 'token' not in session:
+        return redirect(url_for('login'))
+
+    try:
+        token = session['token']
+        decoded = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+
+        task = Task.query.filter_by(id=task_id, user_id=decoded['user_id']).first()
+        if not task:
+            return "Task not found or unauthorized access", 404
+
+        if request.method == 'POST':
+            task.title = request.form['title']
+            task.description = request.form['description']
+            db.session.commit()
+            logging.info(f"Task {task_id} updated successfully.")
+            return redirect(url_for('dashboard'))
+
+        return render_template('edit_task.html', task=task)
+    except jwt.InvalidTokenError:
+        logging.error("Invalid JWT token.")
+        return redirect(url_for('login'))
+
 
 if __name__ == "__main__":
     with app.app_context():
