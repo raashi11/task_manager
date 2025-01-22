@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        label {
+            font-size: 1em;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 0.9em;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Task</h1>
+        <form method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ task.title }}" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description">{{ task.description }}</textarea>
+
+            <button type="submit">Save Changes</button>
+        </form>
+        <div class="back-link">
+            <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
